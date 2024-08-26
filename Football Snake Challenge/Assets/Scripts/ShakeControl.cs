@@ -61,6 +61,7 @@ public class ShakeControl : MonoBehaviour
         Main.OnTakeBonus += TakeBonus;
         Main.OnStartGame += StartGame;
         Main.OnGameOver += StopMove;
+        Main.OnResetGame += StopMove;
     }
 
     private void StartGame()
@@ -92,6 +93,7 @@ public class ShakeControl : MonoBehaviour
         Main.OnTakeBonus -= TakeBonus;
         Main.OnStartGame -= StartGame;
         Main.OnGameOver -= StopMove;
+        Main.OnResetGame -= StopMove;
     }
 
     private void StopMove()

@@ -17,6 +17,7 @@ public class Main : MonoBehaviour
     public static Action OnTakeBonus;
     public static Action OnStartGame;
     public static Action OnGameOver;
+    public static Action OnResetGame;
 
     [SerializeField] private Text _scoreText;
     [SerializeField] private Text _balanceText;

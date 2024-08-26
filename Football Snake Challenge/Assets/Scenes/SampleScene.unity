@@ -2552,6 +2552,7 @@ GameObject:
   - component: {fileID: 327931383}
   - component: {fileID: 327931384}
   - component: {fileID: 327931385}
+  - component: {fileID: 327931386}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -2681,6 +2682,22 @@ MonoBehaviour:
       time: 0
   _recordPrefab: {fileID: 464795740}
   _container: {fileID: 1798137764}
+--- !u!114 &327931386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327931378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df68ecf8fe3d4c0c88212b8f19b9fac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _panel: {fileID: 1177006308}
+  _continumBtn: {fileID: 431871530}
+  _homeBtn: {fileID: 384043362}
+  _activePauseBtn: {fileID: 1391487217}
 --- !u!1 &354809954
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,7 +3115,7 @@ GameObject:
   - component: {fileID: 384043363}
   - component: {fileID: 384043362}
   m_Layer: 5
-  m_Name: Restart
+  m_Name: Home
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12567,7 +12584,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: RESTART
+  m_Text: HOME
 --- !u!222 &1667870922
 CanvasRenderer:
   m_ObjectHideFlags: 0
