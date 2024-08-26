@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BallItem : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private Vector2 _prevPos;
     [SerializeField] private Vector2 _currentPos;
 
@@ -12,6 +13,7 @@ public class BallItem : MonoBehaviour
 
     private void Start()
     {
+        _sprite.sprite = Store._currentSpriteBall;
         _currentPos = transform.position;
     }
 
@@ -25,9 +27,7 @@ public class BallItem : MonoBehaviour
         _prevPos = _currentPos;
         _currentPos = pos;
 
-
-        transform.position = _currentPos;
-        //isMove = true;
+        isMove = true;
     }
 
     private void Update()
@@ -35,10 +35,6 @@ public class BallItem : MonoBehaviour
         if (isMove)
         {
             transform.position = Vector2.MoveTowards(transform.position, _currentPos, Time.deltaTime * _velocityMove);
-            if (transform.position.x == _currentPos.x && transform.position.y == _currentPos.y)
-            {
-                //isMove = false;
-            }
         }
     }
 }
