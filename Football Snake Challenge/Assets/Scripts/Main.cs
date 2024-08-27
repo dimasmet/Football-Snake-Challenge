@@ -249,5 +249,6 @@ public class Main : MonoBehaviour
         else
             _resultScreen.ShowResult(ResultScreen.TypeResult.None, resultScore, timeresult);
 
+        _scorePlayer.AddBalancePlayer(resultScore);
     }
 }
