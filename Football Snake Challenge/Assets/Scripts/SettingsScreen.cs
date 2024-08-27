@@ -19,6 +19,8 @@ public class SettingsScreen : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 90;
+
         _rateUs.onClick.AddListener(() =>
         {
             Device.RequestStoreReview();
