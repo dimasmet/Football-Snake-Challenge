@@ -62,33 +62,52 @@ public class RecordsScreen : MonoBehaviour
     {
         Record result = new Record(valueScore, time);
 
-        bool newRecord = false;
-
-        _records.listRecords.Add(result);
-
-        RecordBlockUI recordBlockUI = Instantiate(_recordPrefab, _container);
-        recordBlockUI.gameObject.SetActive(true);
-        listBlocks.Add(recordBlockUI);
+        bool isRecord = false;
+        bool newRecord = true;
 
         for (int i = 0; i < _records.listRecords.Count; i++)
         {
-            for (int y = 0; y < _records.listRecords.Count; y++)
+            if (_records.listRecords[i].valueScore == result.valueScore)
             {
-                if (_records.listRecords[i].valueScore < _records.listRecords[y].valueScore)
-                {
-                    Record tempRecord = new Record(_records.listRecords[i].valueScore, _records.listRecords[i].time);
-                    _records.listRecords[i] = new Record(_records.listRecords[y].valueScore, _records.listRecords[y].time);
-                    _records.listRecords[y] = tempRecord;
-                }
-            }       
+                newRecord = false;
+                break;
+            }
         }
 
-        string jsonRecord = JsonUtility.ToJson(_records);
-        PlayerPrefs.SetString("RecordsJson", jsonRecord);
+        if (newRecord)
+        {
+            _records.listRecords.Add(result);
 
-        UpdateDataBlocks();
+            if (_records.listRecords[0].valueScore < result.valueScore)
+                isRecord = true;
+            else
+                isRecord = false;
 
-        return newRecord;
+            RecordBlockUI recordBlockUI = Instantiate(_recordPrefab, _container);
+            recordBlockUI.gameObject.SetActive(true);
+            listBlocks.Add(recordBlockUI);
+
+            for (int i = 0; i < _records.listRecords.Count; i++)
+            {
+                for (int y = 0; y < _records.listRecords.Count; y++)
+                {
+                    if (_records.listRecords[i].valueScore < _records.listRecords[y].valueScore)
+                    {
+                        Record tempRecord = new Record(_records.listRecords[i].valueScore, _records.listRecords[i].time);
+                        _records.listRecords[i] = new Record(_records.listRecords[y].valueScore, _records.listRecords[y].time);
+                        _records.listRecords[y] = tempRecord;
+                    }
+                }
+            }
+
+            string jsonRecord = JsonUtility.ToJson(_records);
+            PlayerPrefs.SetString("RecordsJson", jsonRecord);
+
+            UpdateDataBlocks();
+
+        }
+
+        return isRecord;
     }
 
     private void UpdateDataBlocks()
