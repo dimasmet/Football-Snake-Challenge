@@ -13,6 +13,7 @@ public class ScreensController : MonoBehaviour
     [SerializeField] private GameObject _recordsPanel;
     [SerializeField] private GameObject _choiceTypePanel;
     [SerializeField] private GameObject _shopPanel;
+    [SerializeField] private GameObject _difficultyPanel;
 
     [SerializeField] private Button _openStoreBtn;
     [SerializeField] private Button _closeStoreBtn;
@@ -25,6 +26,7 @@ public class ScreensController : MonoBehaviour
         Records,
         TypeGame,
         Shop,
+        Difficulty
     }
 
     private GameObject _currentActive;
@@ -75,6 +77,10 @@ public class ScreensController : MonoBehaviour
                 break;
             case ScreenName.Shop:
                 _currentActive = _shopPanel;
+                break;
+            case ScreenName.Difficulty:
+                DifficultyHandler.Instance.UpdateData();
+                _currentActive = _difficultyPanel;
                 break;
         }
 

@@ -13,7 +13,7 @@ public class MenuScreen : MonoBehaviour
     {
         _startBtn.onClick.AddListener(() =>
         {
-            ScreensController.I.ShowPanel(ScreensController.ScreenName.TypeGame);
+            ScreensController.I.ShowPanel(ScreensController.ScreenName.Difficulty);
         });
 
         _settingsBtn.onClick.AddListener(() =>

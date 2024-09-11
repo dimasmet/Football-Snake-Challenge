@@ -49,6 +49,10 @@ public class ResultScreen : MonoBehaviour
                 break;
         }
 
+        DifficultyHandler.Instance.CheckTargetToOpenNextDifficulty(scoreResult);
+
+        SoundTrackHandler.sound.PlaySoundGameOver();
+
         _timeValueText.text = string.Format("{0:00}:{1:00}", Mathf.FloorToInt(time / 60), Mathf.FloorToInt(time % 60));
     }
 }

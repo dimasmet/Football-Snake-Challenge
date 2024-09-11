@@ -85,7 +85,12 @@ public class ShakeControl : MonoBehaviour
         _currentDirection = Vector2.down;
         StartCoroutine(WaitToNextStepShake());
 
-        Time.timeScale = 0.5f;
+        //Time.timeScale = 0.5f;
+    }
+
+    public void SetSpeedMoveSnake(float valueTimeScale)
+    {
+        Time.timeScale = valueTimeScale;
     }
 
     private void OnDestroy()

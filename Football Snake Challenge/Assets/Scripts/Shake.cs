@@ -9,6 +9,7 @@ public class Shake : MonoBehaviour
         if (collision.TryGetComponent(out Bonus bonus))
         {
             bonus.gameObject.SetActive(false);
+            SoundTrackHandler.sound.PlaySoundBonus();
             Main.OnTakeBonus?.Invoke();
         }
 
