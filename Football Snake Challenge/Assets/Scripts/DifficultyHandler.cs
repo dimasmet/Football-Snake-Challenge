@@ -46,6 +46,12 @@ public class DifficultyHandler : MonoBehaviour
 
     [SerializeField] private ShakeControl shakeControl;
 
+    [SerializeField] private SpriteRenderer _spriteBackg;
+
+    [SerializeField] private Sprite[] _fieldSprites;
+
+    [SerializeField] private GameObject _enemys;
+
     private int numberDifficulty;
 
     private void Start()
@@ -61,7 +67,17 @@ public class DifficultyHandler : MonoBehaviour
     {
         this.numberDifficulty = numberDifficulty;
         shakeControl.SetSpeedMoveSnake(difficultyWrapper.difficultyDatas[numberDifficulty].timeSpeed);
+        _spriteBackg.sprite = _fieldSprites[numberDifficulty];
         ScreensController.I.ShowPanel(ScreensController.ScreenName.TypeGame);
+
+        if (numberDifficulty == 2)
+        {
+            _enemys.SetActive(true);
+        }
+        else
+        {
+            _enemys.SetActive(false);
+        }
     }
 
     public void CheckTargetToOpenNextDifficulty(int valueResult)

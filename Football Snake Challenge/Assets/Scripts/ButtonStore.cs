@@ -46,15 +46,15 @@ public class ButtonStore : MonoBehaviour
             case Status.idle:
                 break;
             case Status.Active:
-                _priceText.gameObject.SetActive(false);
+                _priceText.transform.parent.gameObject.SetActive(false);
                 _activeObj.SetActive(true);
                 break;
             case Status.Buyed:
-                _priceText.gameObject.SetActive(false);
+                _priceText.transform.parent.gameObject.SetActive(false);
                 _activeObj.SetActive(false);
                 break;
             case Status.NoBuy:
-                _priceText.gameObject.SetActive(true);
+                _priceText.transform.parent.gameObject.SetActive(true);
                 _activeObj.SetActive(false);
                 break;
         }

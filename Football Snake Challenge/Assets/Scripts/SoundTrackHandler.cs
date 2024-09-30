@@ -6,6 +6,8 @@ public class SoundTrackHandler : MonoBehaviour
     public static SoundTrackHandler sound;
 
     public Button _buttonActive;
+    public Sprite _onSoundSprite;
+    public Sprite _offSoundSprite;
 
     public AudioSource audioSourceMain;
     public AudioSource audioSourceSounds;
@@ -42,12 +44,12 @@ public class SoundTrackHandler : MonoBehaviour
 
         if (musicOn)
         {
-            _buttonActive.transform.GetChild(0).GetComponent<Text>().text = "ON";
+            _buttonActive.transform.GetChild(0).GetComponent<Image>().sprite = _onSoundSprite;
             audioSourceMain.Play();
         }
         else
         {
-            _buttonActive.transform.GetChild(0).GetComponent<Text>().text = "OFF";
+            _buttonActive.transform.GetChild(0).GetComponent<Image>().sprite = _offSoundSprite;
             audioSourceMain.Stop();
         }
     }

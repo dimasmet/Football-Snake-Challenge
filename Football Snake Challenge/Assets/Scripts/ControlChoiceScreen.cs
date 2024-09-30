@@ -14,22 +14,34 @@ public class ControlChoiceScreen : MonoBehaviour
     [SerializeField] private GameObject _rulesClassicControl;
     [SerializeField] private GameObject _rulesFreeMoveControl;
 
-    [SerializeField] private Button _startBtn;
+    [SerializeField] private Button _rulesClasicBtn;
+    [SerializeField] private Button _rulesFreeMoveBtn;
+    [SerializeField] private Button _closeRulesBtn;
 
     private void Awake()
     {
+        _rulesClasicBtn.onClick.AddListener(() =>
+        {
+            RulesControl(Main.TypeGame.Liner);
+        });
+
+        _rulesFreeMoveBtn.onClick.AddListener(() =>
+        {
+            RulesControl(Main.TypeGame.FreeMove);
+        });
+
         _classicBtn.onClick.AddListener(() =>
         {
             Main.Instance.ChoiceTypeControl(Main.TypeGame.Liner);
-
-            RulesControl(Main.TypeGame.Liner);
+            ScreensController.I.ShowPanel(ScreensController.ScreenName.Game);
+            Main.OnStartGame?.Invoke();
         });
 
         _freeMovementBtn.onClick.AddListener(() =>
         {
             Main.Instance.ChoiceTypeControl(Main.TypeGame.FreeMove);
-
-            RulesControl(Main.TypeGame.FreeMove);         
+            ScreensController.I.ShowPanel(ScreensController.ScreenName.Game);
+            Main.OnStartGame?.Invoke();        
         });
 
         _backBtn.onClick.AddListener(() =>
@@ -37,10 +49,8 @@ public class ControlChoiceScreen : MonoBehaviour
             ScreensController.I.ShowPanel(ScreensController.ScreenName.Menu);
         });
 
-        _startBtn.onClick.AddListener(() => {
+        _closeRulesBtn.onClick.AddListener(() => {
             _rules.SetActive(false);
-            ScreensController.I.ShowPanel(ScreensController.ScreenName.Game);
-            Main.OnStartGame?.Invoke();
         });
     }
 
