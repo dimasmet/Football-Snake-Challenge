@@ -9,7 +9,6 @@ public class DifficultyView : MonoBehaviour
 
     [SerializeField] private Button _startBtn;
     [SerializeField] private Sprite _spriteStartBtnSource;
-    [SerializeField] private Sprite _spriteStartBtnDeactive;
     [SerializeField] private Button _lockButton;
     [SerializeField] private Button _closeButton;
 
@@ -113,7 +112,6 @@ public class DifficultyView : MonoBehaviour
         else
         {
             _startBtn.enabled = false;
-            _startBtn.GetComponent<Image>().sprite = _spriteStartBtnDeactive;
             _lockButton.gameObject.SetActive(true);
             _bestResult.transform.parent.gameObject.SetActive(false);
         }

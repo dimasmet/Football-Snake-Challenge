@@ -44,12 +44,12 @@ public class SoundTrackHandler : MonoBehaviour
 
         if (musicOn)
         {
-            _buttonActive.transform.GetChild(0).GetComponent<Image>().sprite = _onSoundSprite;
+            _buttonActive.GetComponent<Image>().sprite = _onSoundSprite;
             audioSourceMain.Play();
         }
         else
         {
-            _buttonActive.transform.GetChild(0).GetComponent<Image>().sprite = _offSoundSprite;
+            _buttonActive.GetComponent<Image>().sprite = _offSoundSprite;
             audioSourceMain.Stop();
         }
     }
